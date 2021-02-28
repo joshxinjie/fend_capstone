@@ -2,6 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// const dotenv = require('dotenv').config({
+//     path: path.join(__dirname, '.env')
+// } );
 
 module.exports = {
     entry: './src/client/index.js',
@@ -13,7 +16,7 @@ module.exports = {
     devtool: 'source-map',
     stats: 'verbose',
     devServer: {
-        port: 8081,
+        port: 8000,
     },
     module: {
         rules: [
@@ -29,6 +32,9 @@ module.exports = {
         ]
     },
     plugins: [
+        // new webpack.DefinePlugin( {
+        //     "process.env": dotenv.parsed
+        // }),
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",

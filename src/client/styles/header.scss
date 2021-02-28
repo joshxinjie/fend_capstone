@@ -1,0 +1,117 @@
+header {
+    .title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: small;
+        font-weight: bold;
+        color: #B22222;
+        height: 20px;
+        vertical-align: middle;
+        margin-bottom: 50px;
+
+        #logo {
+            float: left;
+            font-size: 30px;
+            margin-left: 100px;
+            margin-right: 10px;
+            color: #B22222;
+        }
+
+        &:hover {
+            opacity: 0.4;
+            // background: #B22222;
+            // color: white;
+        }
+    }
+
+    .search {
+        text-align: center;
+        vertical-align: middle;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background:white;
+        height: 100px;
+
+        // #search-background {
+        //     display: inline-block;
+        //     border-radius: 25px;
+        //     background: rgba(0, 0, 0, .2);
+        //     padding: 5px;
+        //     width: 800px;
+        //     vertical-align: middle;
+        //     backdrop-filter: blur(10px);
+        //     -webkit-backdrop-filter: blur(10px);
+        // }
+
+        #search-background {
+            display: inline-block;
+            border-radius: 25px;
+            // background:white;
+            border-style: solid;
+            border-color: rgb(167, 167, 167);
+            padding: 5px;
+            width: 900px;
+            vertical-align: middle;
+        }
+
+        .field-names {
+            text-align: left;
+            padding-left: 20px;
+
+            p {
+                display: inline-block;
+            }
+
+            #destination-name {
+                width: 400px;
+            }
+
+            #arrival-date-name {
+                width: 200px;
+            }
+        }
+
+        input {
+            display: inline-block;
+            height: 30px;
+            // z-index: 2;
+        }
+
+        #search-destination {
+            width: 400px;
+        }
+
+        #arrival-date {
+            width: 200px;
+        }
+
+        #departure-date {
+            width: 200px;
+        }
+
+        .submit {
+            display: inline-block;
+        }
+
+        #search-button {
+            background-color: #B22222;
+            color: white;
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
+    }
+    
+    .sticky {
+        // position: fixed;
+        // top: 0;
+        // width: 100%;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
+
+    // .sticky + .popular-destinations {
+    //     padding-top: 60px;
+    // }
+}
+

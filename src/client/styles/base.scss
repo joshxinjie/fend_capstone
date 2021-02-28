@@ -1,0 +1,110 @@
+body {
+    // background:white;
+    // background-image: url(https://source.unsplash.com/Q7PclNhVRI0);
+    margin: 0;
+    padding: 0;
+
+    .multicolor-text {
+        background-image: linear-gradient(to left, #1a2a6c, #fdbb2d, #b21f1f);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    #pop-dest-title {
+        margin-left: 100px;
+        font-size: 300%;
+        // font-weight: bold;
+    }
+
+    .destinations-details {
+        background-color: black;
+    }
+
+    #destination-1-background {
+        width: 100%;
+        height: calc(80vh);
+        background: url("https://images.unsplash.com/photo-1528818955841-a7f1425131b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80") no-repeat 50% 50%;
+        background-size: cover;
+        position: relative;
+
+        img {
+            // width: 100%;
+            height: calc(80vh);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+
+    .destination-headers {
+        color: white;
+        font-size: xxx-large;
+        margin-left: 100px;
+        margin-bottom: 20px;
+
+        span {
+            color: red;
+            font-size: xxx-large;
+        }
+    }
+
+    // .pop-dest-container{
+    //     background:black;
+    //     color: white;
+    //     display:grid;
+    //     grid-template-columns: 1fr 1fr 1fr;
+    //     grid-template-rows: 100%;
+    //     grid-template-areas:
+    //     "dest-1 dest-2 dest-3";
+    // }
+
+    // #dest-1 {
+    //     grid-area: dest-1;
+    // }
+
+    // #dest-2 {
+    //     grid-area: dest-2;
+    // }
+
+    // #dest-3 {
+    //     grid-area: dest-3;
+    // }
+
+    // .pop-dest-card {
+    //     // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    //     box-shadow: 0 4px 8px 0 rgb(109, 109, 109);
+    //     transition: 0.3s;
+    //     width: 80%;
+    //     border-radius: 10px;
+    //     margin: 100px;
+    //     // margin-top: 100px;
+    //     // margin-bottom: 100px;
+
+    //     &:hover {
+    //         // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    //         box-shadow: 0 8px 16px 0 white;
+    //     }
+
+    //     img {
+    //         border-radius: 5px 5px 0 0;
+    //         width: 100%;
+    //     }
+
+    //     .dest-text {
+    //         padding: 2px 16px;
+    //         background: rgb(41, 41, 41);
+
+    //         h4 {
+    //             b {
+    //                 initial-letter: 2;
+    //             }
+    //         }
+    //     }
+    // }
+
+}

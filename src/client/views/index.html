@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Travel App</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/fcfb1d6703.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header id="header">
+            <div class="title">
+                <i class="fas fa-plane-departure" id="logo"></i>
+                <h1>Travel Companion</h1>
+            </div>
+            <section class="search" id="search-bar">
+                <div id="search-background">
+                    <!-- <input type="text" placeholder="Search Destination" id="search-destination">
+                    <input type="date" name="arrival-date" id="arrival-date">
+                    <input type="date" name="departure-date" id="departure-date"> -->
+                    <!-- <div class="field-names">
+                        <p id="destination-name">Location</p>
+                        <p id="arrival-date-name">Arrival Date</p>
+                        <p id="departure-date-name">Departure Date</p>
+                    </div> -->
+                    <form class="submit" onsubmit="return Client.handleSubmit(event)">
+                        <input type="text" placeholder="Search Destination" id="search-destination" required>
+                        <input type="date" name="arrival-date" id="arrival-date">
+                        <input type="date" name="departure-date" id="departure-date">
+                        <i class="fa fa-search" id="search-button" type="submit" onclick="return Client.handleSearch(event)" onsubmit="return Client.handleSearch(event)"></i>
+                    </form>
+                </div>
+            </section>
+        </header>
+        <main>
+            <div class="popular-destinations">
+                <h2 class="multicolor-text" id="pop-dest-title">Popular Destinations</h2>
+                <div class="destinations-details">
+                    <section id="destination-1">
+                        <p class="destination-headers"><span>1.</span> Paris</p>
+                        <div id="destination-1-background">
+                            <img src="src/client/media/eiffel_tower.png" alt="effiel tower">
+                        </div>
+                    </section>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                    <p>Text</p>
+                </div>
+                <!-- <div class="pop-dest-container">
+                    <div class="pop-dest-card" id="dest-1">
+                        <img src="https://images.unsplash.com/photo-1612885980173-fb00560c1f67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3925&q=80" alt="Avatar">
+                        <div class="dest-text">
+                            <h4><b>1. Taiwan</b></h4> 
+                            <p>Temple</p> 
+                        </div>
+                    </div>
+                    <div class="pop-dest-card" id="dest-2">
+                        <img src="https://images.unsplash.com/photo-1612885980173-fb00560c1f67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3925&q=80" alt="Avatar">
+                        <div class="dest-text">
+                            <h4><b>1. Taiwan</b></h4> 
+                            <p>Temple</p> 
+                        </div>
+                    </div>
+                    <div class="pop-dest-card" id="dest-3">
+                        <img src="https://images.unsplash.com/photo-1612885980173-fb00560c1f67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3925&q=80" alt="Avatar">
+                        <div class="dest-text">
+                            <h4><b>1. Taiwan</b></h4> 
+                            <p>Temple</p> 
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+        <script src="src/client/js/animation.js"></script>
+    </body>
+</html>
