@@ -12,11 +12,11 @@ function handleSearch(event) {
     checkMissingInputs(destination, arrivalDate, departureDate);
 
     destination = destination.toLowerCase().trim();
-    console.log(`Destination: ${destination}`);
-    console.log(`Arrival Date: ${arrivalDate}`);
-    console.log(`Departure Date: ${departureDate}`);
+    // console.log(`Destination: ${destination}`);
+    // console.log(`Arrival Date: ${arrivalDate}`);
+    // console.log(`Departure Date: ${departureDate}`);
 
-    retrieveDestinationWeather(destination, arrivalDate, departureDate);
+    retrieveDestinationData(destination, arrivalDate, departureDate);
 }
 
 function checkMissingInputs(destination, arrivalDate, departureDate) {
@@ -31,15 +31,19 @@ function checkMissingInputs(destination, arrivalDate, departureDate) {
     } 
 }
 
-function retrieveDestinationWeather(dest, arrDate, depDate) {
+// function retrieveDestinationData(dest, arrDate, depDate) {
+//     // let postURL = `${window.location.origin}/retrieveWeather`;
+//     let postURL = 'http://localhost:7500/retrieveDestinationData';
+//     let destData = {destination: dest, arrivalDate: arrDate, departureDate: depDate};
+//     postDestination(postURL, destData);
+// }
+
+function retrieveDestinationData(dest, arrDate, depDate) {
     // let postURL = `${window.location.origin}/retrieveWeather`;
-    let postURL = 'http://localhost:7500/retrieveWeather';
+    let postURL = 'http://localhost:7500/retrieveDestinationData';
     let destData = {destination: dest, arrivalDate: arrDate, departureDate: depDate};
-    postDestination(postURL, destData);
-}
-
-function retrieveDestinationImages() {
-
+    postDestination(postURL, destData)
+    .then(response => updateUI(response));
 }
 
 const postDestination = async(url='', data={}) => {
@@ -56,6 +60,23 @@ const postDestination = async(url='', data={}) => {
         const newData = await response.json();
         console.log("New Data", newData);
         return newData;
+    } catch(error) {
+        console.log("error", error);
+    }
+};
+
+function updateUI(destinationData) {
+    const weatherData = destinationData.weather;
+    const imagesData = destinationData.images;
+
+    try {
+        document.getElementById('carousel-obj').style.display = "block";
+        const first_image_url = imagesData[0].webFormatURL;
+        const second_image_url = imagesData[1].webFormatURL;
+        const third_image_url = imagesData[2].webFormatURL;
+        document.getElementById('carousel__slide1').style.backgroundImage = `url('${first_image_url}')`;
+        document.getElementById('carousel__slide2').style.backgroundImage = `url('${second_image_url}')`;
+        document.getElementById('carousel__slide3').style.backgroundImage = `url('${third_image_url}')`;
     } catch(error) {
         console.log("error", error);
     }

@@ -30,6 +30,69 @@
                     </form>
                 </div>
             </section>
+            <div class="search-results">
+                <section class="carousel" aria-label="Gallery" id="carousel-obj">
+                    <ol class="carousel__viewport">
+                      <li id="carousel__slide1"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper">
+                          <a href="#carousel__slide4"
+                             class="carousel__prev">Go to last slide</a>
+                          <a href="#carousel__slide2"
+                             class="carousel__next">Go to next slide</a>
+                        </div>
+                      </li>
+                      <li id="carousel__slide2"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide1"
+                           class="carousel__prev">Go to previous slide</a>
+                        <a href="#carousel__slide3"
+                           class="carousel__next">Go to next slide</a>
+                      </li>
+                      <li id="carousel__slide3"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide2"
+                           class="carousel__prev">Go to previous slide</a>
+                        <a href="#carousel__slide1"
+                           class="carousel__next">Go to next slide</a>
+                      </li>
+                      <!-- <li id="carousel__slide4"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide3"
+                           class="carousel__prev">Go to previous slide</a>
+                        <a href="#carousel__slide1"
+                           class="carousel__next">Go to first slide</a>
+                      </li> -->
+                    </ol>
+                    <aside class="carousel__navigation">
+                      <ol class="carousel__navigation-list">
+                        <li class="carousel__navigation-item">
+                          <a href="#carousel__slide1"
+                             class="carousel__navigation-button">Go to slide 1</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                          <a href="#carousel__slide2"
+                             class="carousel__navigation-button">Go to slide 2</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                          <a href="#carousel__slide3"
+                             class="carousel__navigation-button">Go to slide 3</a>
+                        </li>
+                        <!-- <li class="carousel__navigation-item">
+                          <a href="#carousel__slide4"
+                             class="carousel__navigation-button">Go to slide 4</a>
+                        </li> -->
+                      </ol>
+                    </aside>
+                  </section>
+            </div>
         </header>
         <main>
             <div class="popular-destinations">
@@ -86,31 +149,15 @@
                     <p>Text</p>
                     <p>Text</p>
                 </div>
-                <!-- <div class="pop-dest-container">
-                    <div class="pop-dest-card" id="dest-1">
-                        <img src="https://images.unsplash.com/photo-1612885980173-fb00560c1f67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3925&q=80" alt="Avatar">
-                        <div class="dest-text">
-                            <h4><b>1. Taiwan</b></h4> 
-                            <p>Temple</p> 
-                        </div>
-                    </div>
-                    <div class="pop-dest-card" id="dest-2">
-                        <img src="https://images.unsplash.com/photo-1612885980173-fb00560c1f67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3925&q=80" alt="Avatar">
-                        <div class="dest-text">
-                            <h4><b>1. Taiwan</b></h4> 
-                            <p>Temple</p> 
-                        </div>
-                    </div>
-                    <div class="pop-dest-card" id="dest-3">
-                        <img src="https://images.unsplash.com/photo-1612885980173-fb00560c1f67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3925&q=80" alt="Avatar">
-                        <div class="dest-text">
-                            <h4><b>1. Taiwan</b></h4> 
-                            <p>Temple</p> 
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </main>
-        <script src="src/client/js/animation.js"></script>
+        <!-- <script src="src/client/js/animation.js">
+            // let slideIndex = 1;
+            // Client.showSlides(slideIndex);
+        </script> -->
+        <!-- <script type="text/javascript">
+        // $(window).scroll(Client.zoomBackgroundWhenScroll);
+            document.addEventListener("scroll", Client.zoomBackgroundWhenScroll);
+        </script> -->
     </body>
 </html>

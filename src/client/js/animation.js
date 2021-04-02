@@ -1,3 +1,5 @@
+//  Change this to export functions to Client, then add eventlistener in the html
+
 const sectionNodeList = document.querySelectorAll("section");
 
 /**
@@ -66,5 +68,28 @@ function stickSearchBarToTop() {
     }
 }
 
-document.addEventListener("scroll", zoomBackgroundWhenScroll);
-document.addEventListener("scroll", stickSearchBarToTop);
+// document.addEventListener("scroll", zoomBackgroundWhenScroll);
+// document.addEventListener("scroll", stickSearchBarToTop);
+
+export { zoomBackgroundWhenScroll };
+
+// function plusSlides(n) {
+//     showSlides(slideIndex += n);
+// }
+
+// function showSlides(n) {
+//     console.log("working");
+//     let i;
+//     let slides = document.getElementsByClassName("mySlides");
+//     if (n > slides.length) {slideIndex = 1}
+//     if (n < 1) {slideIndex = slides.length}
+//     for (i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";
+//     }
+//     slides[slideIndex-1].style.display = "block";
+// }
+
+// let slideIndex = 1;
+// showSlides(slideIndex);
+
+// export { plusSlides, showSlides };
