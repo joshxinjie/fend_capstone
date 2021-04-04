@@ -66,10 +66,13 @@ const postDestination = async(url='', data={}) => {
 };
 
 function updateUI(destinationData) {
+    const destination = destinationData.destination;
     const weatherData = destinationData.weather;
     const imagesData = destinationData.images;
 
     try {
+        document.getElementById('search-destination-title').style.display = "block";
+        document.getElementById('search-destination-title').innerText = destination;
         document.getElementById('carousel-obj').style.display = "block";
         const first_image_url = imagesData[0].webFormatURL;
         const second_image_url = imagesData[1].webFormatURL;

@@ -54,12 +54,17 @@ const retrieveDestinationData = async(request, response) => {
     // console.log(`Arrival Date ${arrivalDate}`)
     // console.log(`Departure Date ${departureDate}`)
 
+    arrivalDate = new Date(arrivalDate);
+    const arrivalDateStr = arrivalDate.toDateString();
+    const newArrivalDateStr = formatDateString(arrivalDateStr)
+    // console.log("Arrival Day:", newArrivalDateStr);
+
     try {
         // get geo coordinates and country name
         const coordAndCountryName = await getCoordAndCountryName(destination, response);
         //  get days to arrival
         const daysToArrival = await getDaysToArrival(arrivalDate);
-        console.log("Days to Arr", daysToArrival);
+        // console.log("Days to Arr", daysToArrival);
         // get weather
         // weather = { 
         //     weather: [{description: "Clear sky", iconURL: "https://www.weatherbit.io/static/img/icons/c01d", temp: 1}, {description, ...}]
@@ -68,7 +73,7 @@ const retrieveDestinationData = async(request, response) => {
         // console.log("Weather", weather);
         const images = await getPhoto(destination, response, 3);
         // console.log("Images", images);
-        const destinationData = {weather: weather, images: images, daysToArrival: daysToArrival};
+        const destinationData = {destination: destination, weather: weather, images: images, daysToArrival: daysToArrival, arrivalDay: newArrivalDateStr};
         console.log("destinationData", destinationData);
         response.send(destinationData);
     } catch(error) {
@@ -76,6 +81,12 @@ const retrieveDestinationData = async(request, response) => {
     }
 };
 app.post('/retrieveDestinationData', retrieveDestinationData);
+
+function formatDateString(dateString) {
+    const dateStringSplit = dateString.split(" ");
+    const newDateStr = dateStringSplit[0] + ", " + dateStringSplit[2] + " " + dateStringSplit[1] + " " + dateStringSplit[3];
+    return newDateStr;
+}
 
 const getCoordAndCountryName = async(destination, response) => {
     const geoNamesURL = `http://api.geonames.org/searchJSON?maxRows=1&q=${destination}&username=${GEONAMES_USERNAME}`;
@@ -93,13 +104,12 @@ const getCoordAndCountryName = async(destination, response) => {
 }
 
 //  get days to arrival
-const getDaysToArrival = async(arrivalDateStr) => {
+const getDaysToArrival = async(arrivalDate) => {
     const numMillisecondsInADay = 1000*60*60*24;
     const todayDate = new Date();
     todayDate.setHours(0,0,0,0);
-    console.log("Today's Date", todayDate);
 
-    let arrivalDate = new Date(arrivalDateStr);
+    // let arrivalDate = new Date(arrivalDateStr);
 
     let daysToArrival = (arrivalDate - todayDate) / numMillisecondsInADay;
     
@@ -117,7 +127,7 @@ const getWeather = async(lat, lng, daysToArrival, response) => {
 
     if (daysToArrival < 0) {
         console.log("Please enter an arrival date from today onwards");
-    } else if (daysToArrival < 8) {
+    } else if (daysToArrival < 1) {
         // get current weather
         fetchURL = weatherbitCurrentURL;
     } else {
@@ -131,8 +141,10 @@ const getWeather = async(lat, lng, daysToArrival, response) => {
         // console.log("Fetched", weatherResults);
         // build array of json from all indices in weatherData
         weatherSummaryArray = buildWeatherSummaryJSON(weatherResults);
-        // const weatherSummaryJSON = { weather: weatherSummaryArray };
-        return weatherSummaryArray;
+        const arrivalDayWeather = getArrivalDayWeather(weatherSummaryArray, daysToArrival);
+        // console.log("Arr Date", arrivalDayWeather.date);
+        // console.log("Arr Weather", arrivalDayWeather.temp);
+        return arrivalDayWeather;
     } catch(error) {
         console.log("error", error);
     }
@@ -162,6 +174,16 @@ function buildWeatherSummaryJSON(weatherResultsJSON) {
         weatherForecastSummaryArray.push(dailyWeatherSummary);
     }
     return weatherForecastSummaryArray
+}
+
+function getArrivalDayWeather(weatherSummaryArray, daysToArrival) {
+    const numForecastDays = weatherSummaryArray.length
+    if (daysToArrival < numForecastDays) {
+        return weatherSummaryArray[daysToArrival];
+    } else {
+        // return last forecast day weather if arrival date is more than 16 days away
+        return weatherSummaryArray[numForecastDays - 1];
+    }
 }
 
 const getPhoto = async(destination, response, topK = 3) => {
