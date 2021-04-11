@@ -1,0 +1,42 @@
+$main-color: white;
+$font-color: black;
+$normal-font: Roboto;
+
+footer {
+    display: inline-block;
+    background: $main-color;
+    text-align: center;
+    width: 100%;
+
+    p {
+        display: inline-block;
+        font: $normal-font;
+        font-size: 25px;
+        margin-top: 15px;
+        // margin-right: 2px;
+        // margin-left: 15px;
+        margin-bottom: 15px;
+        vertical-align: middle;
+        color: $font-color;
+    }
+
+    .contact-links {
+        display: inline-block;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+        }
+
+        .contact-img-link {
+            height: 25px;
+            width: 25px;
+            margin-top: 0px;
+            vertical-align: middle;
+
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
+}

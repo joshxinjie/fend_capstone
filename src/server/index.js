@@ -56,8 +56,12 @@ const retrieveDestinationData = async(request, response) => {
 
     arrivalDate = new Date(arrivalDate);
     const arrivalDateStr = arrivalDate.toDateString();
-    const newArrivalDateStr = formatDateString(arrivalDateStr)
+    const newArrivalDateStr = formatDateString(arrivalDateStr);
     // console.log("Arrival Day:", newArrivalDateStr);
+
+    departureDate = new Date(departureDate);
+    const departureDateStr = departureDate.toDateString();
+    const newDepartureDateStr = formatDateString(departureDateStr);
 
     try {
         // get geo coordinates and country name
@@ -73,7 +77,14 @@ const retrieveDestinationData = async(request, response) => {
         // console.log("Weather", weather);
         const images = await getPhoto(destination, response, 3);
         // console.log("Images", images);
-        const destinationData = {destination: destination, weather: weather, images: images, daysToArrival: daysToArrival, arrivalDay: newArrivalDateStr};
+        const destinationData = {
+            destination: destination,
+            weather: weather,
+            images: images,
+            daysToArrival: daysToArrival,
+            arrivalDay: newArrivalDateStr,
+            departureDate: newDepartureDateStr
+        };
         console.log("destinationData", destinationData);
         response.send(destinationData);
     } catch(error) {
@@ -163,7 +174,7 @@ function buildWeatherSummaryJSON(weatherResultsJSON) {
         if (date.includes(":")) {
             date = date.substr(0, date.indexOf(':'));
         }
-        let iconURL = `https://www.weatherbit.io/static/img/icons/${icon}`;
+        let iconURL = `https://www.weatherbit.io/static/img/icons/${icon}.png`;
         let temp = dailyWeather.temp;
         let dailyWeatherSummary = {
             description: description,

@@ -1,6 +1,3 @@
-// Add EventListener for click to search button
-// document.getElementById("search-button").addEventListener("click", retrieveData);
-
 // const envVariables = process.env;
 // console.log(envVariables.PORT);
 
@@ -30,13 +27,6 @@ function checkMissingInputs(destination, arrivalDate, departureDate) {
         alert("Please enter a valid departure date");
     } 
 }
-
-// function retrieveDestinationData(dest, arrDate, depDate) {
-//     // let postURL = `${window.location.origin}/retrieveWeather`;
-//     let postURL = 'http://localhost:7500/retrieveDestinationData';
-//     let destData = {destination: dest, arrivalDate: arrDate, departureDate: depDate};
-//     postDestination(postURL, destData);
-// }
 
 function retrieveDestinationData(dest, arrDate, depDate) {
     // let postURL = `${window.location.origin}/retrieveWeather`;
@@ -69,17 +59,26 @@ function updateUI(destinationData) {
     const destination = destinationData.destination;
     const weatherData = destinationData.weather;
     const imagesData = destinationData.images;
+    const daysToArrival = destinationData.daysToArrival;
+    const arrivalDay = destinationData.arrivalDay;
+    const departureDay = destinationData.departureDate;
 
     try {
-        document.getElementById('search-destination-title').style.display = "block";
+        document.getElementById('search-results-obj').style.display = "block";
+        
         document.getElementById('search-destination-title').innerText = destination;
-        document.getElementById('carousel-obj').style.display = "block";
         const first_image_url = imagesData[0].webFormatURL;
         const second_image_url = imagesData[1].webFormatURL;
         const third_image_url = imagesData[2].webFormatURL;
         document.getElementById('carousel__slide1').style.backgroundImage = `url('${first_image_url}')`;
         document.getElementById('carousel__slide2').style.backgroundImage = `url('${second_image_url}')`;
         document.getElementById('carousel__slide3').style.backgroundImage = `url('${third_image_url}')`;
+        document.getElementById('dest-weather-date').innerText = arrivalDay;
+        document.getElementById('dest-weather-desc').innerText = weatherData.description;
+        document.getElementById('dest-temp').innerText = `${weatherData.temp}` + String.fromCharCode(176) + 'C';
+        document.getElementById('dest-arrival-date').innerText = `Arrival Date: ${arrivalDay}`;
+        document.getElementById('dest-departure-date').innerText = `Departure Date: ${departureDay}`;
+        document.getElementById('days-to-arrival').innerText = `Days to Arrival: ${daysToArrival}`;
     } catch(error) {
         console.log("error", error);
     }

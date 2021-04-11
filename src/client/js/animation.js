@@ -38,7 +38,7 @@ function getSectionInView() {
 }
 
 function zoomBackgroundWhenScroll() {
-    sectionInView = getSectionInView();
+    const sectionInView = getSectionInView();
     for (const eachSection of sectionNodeList) {
         if (eachSection == sectionInView) {
             let sectionID = eachSection.getAttribute("id");
@@ -47,9 +47,9 @@ function zoomBackgroundWhenScroll() {
             // let distanceToTop = window.pageYOffset + eachSection.getBoundingClientRect().top
             let zoomFactor = 100 + (distanceToTop * -1) * 0.1;
             console.log(`Section: ${sectionID}`);
-            // console.log(`Zoom Factor: ${zoomFactor}%`);
-            // console.log(`Scroll top: ${document.scrollingElement.scrollTop}`);
-            // console.log(`Distance to top: ${distanceToTop}`)
+            console.log(`Zoom Factor: ${zoomFactor}%`);
+            console.log(`Scroll top: ${document.scrollingElement.scrollTop}`);
+            console.log(`Distance to top: ${distanceToTop}`)
             if ((zoomFactor > 100) && (sectionBackground != null)){
                 sectionBackground.style.backgroundSize = `${zoomFactor}%`;
             }
@@ -57,39 +57,6 @@ function zoomBackgroundWhenScroll() {
     }
 }
 
-function stickSearchBarToTop() {
-    let searchBar = document.getElementById("search-bar");
-    // Get the offset position of the searchBar
-    let sticky = searchBar.offsetTop;
-    if (window.pageYOffset >= sticky) {
-        searchBar.classList.add("sticky")
-    } else {
-        searchBar.classList.remove("sticky");
-    }
-}
-
 // document.addEventListener("scroll", zoomBackgroundWhenScroll);
-// document.addEventListener("scroll", stickSearchBarToTop);
 
 export { zoomBackgroundWhenScroll };
-
-// function plusSlides(n) {
-//     showSlides(slideIndex += n);
-// }
-
-// function showSlides(n) {
-//     console.log("working");
-//     let i;
-//     let slides = document.getElementsByClassName("mySlides");
-//     if (n > slides.length) {slideIndex = 1}
-//     if (n < 1) {slideIndex = slides.length}
-//     for (i = 0; i < slides.length; i++) {
-//         slides[i].style.display = "none";
-//     }
-//     slides[slideIndex-1].style.display = "block";
-// }
-
-// let slideIndex = 1;
-// showSlides(slideIndex);
-
-// export { plusSlides, showSlides };

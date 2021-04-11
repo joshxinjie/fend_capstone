@@ -79,8 +79,11 @@ ol, li {
     font-family: 'Lato', sans-serif;
 }
 
-#search-destination-title {
+#search-results-obj {
     display: none;
+}
+
+#search-destination-title {
     text-transform: capitalize;
 }
   
@@ -89,10 +92,6 @@ ol, li {
     padding-top: 75%;
     filter: drop-shadow(0 0 10px #0003);
     perspective: 100px;
-}
-
-#carousel-obj {
-    display: block;
 }
   
 .carousel__viewport {
@@ -117,7 +116,7 @@ ol, li {
 }
   
 .carousel__slide:before {
-    content: counter(item);
+    // content: counter(item);
     position: absolute;
     top: 50%;
     left: 50%;

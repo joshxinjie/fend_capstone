@@ -14,25 +14,31 @@
             </div>
             <section class="search" id="search-bar">
                 <div id="search-background">
-                    <!-- <input type="text" placeholder="Search Destination" id="search-destination">
-                    <input type="date" name="arrival-date" id="arrival-date">
-                    <input type="date" name="departure-date" id="departure-date"> -->
-                    <!-- <div class="field-names">
-                        <p id="destination-name">Location</p>
-                        <p id="arrival-date-name">Arrival Date</p>
-                        <p id="departure-date-name">Departure Date</p>
-                    </div> -->
                     <form class="submit" onsubmit="return Client.handleSubmit(event)">
-                        <input type="text" placeholder="Search Destination" id="search-destination" required>
-                        <input type="date" name="arrival-date" id="arrival-date">
-                        <input type="date" name="departure-date" id="departure-date">
-                        <i class="fa fa-search" id="search-button" type="submit" onclick="return Client.handleSearch(event)" onsubmit="return Client.handleSearch(event)"></i>
+                        <div class="tooltip">
+                            <input type="text" placeholder="Search Destination" id="search-destination" required>
+                            <span class="tooltiptext">Travel Destination</span>
+                        </div>
+                        <div class="tooltip">
+                            <input type="date" name="arrival-date" id="arrival-date">
+                            <span class="tooltiptext">Arrival Date</span>
+                        </div>
+                        <div class="tooltip">
+                            <input type="date" name="departure-date" id="departure-date">
+                            <span class="tooltiptext">Departure Date</span>
+                        </div>
+                        <div class="tooltip">
+                            <i class="fa fa-search" id="search-button" type="submit" onclick="return Client.handleSearch(event)" onsubmit="return Client.handleSearch(event)"></i>
+                            <span class="tooltiptext">Search</span>
+                        </div>
                     </form>
                 </div>
             </section>
-            <div class="search-results">
+        </header>
+        <main>
+            <div class="search-results" id="search-results-obj">
                 <p id="search-destination-title">Placeholder</p>
-                <section class="carousel" aria-label="Gallery" id="carousel-obj">
+                <div class="carousel" aria-label="Gallery">
                     <ol class="carousel__viewport">
                         <li id="carousel__slide1"
                             tabindex="0"
@@ -79,87 +85,58 @@
                             </li>
                         </ol>
                     </aside>
-                </section>
+                </div>
                 <div id="dest-details">
                     <div class="dest-weather-card">
                         <img src="https://www.weatherbit.io/static/img/icons/c02d.png" alt="Weather" style="width:100%" id="dest-weather-icon">
                         <div class="dest-weather-card-container">
-                          <h4 id="dest-arr-date"><b>Tue, 6 April 2021</b></h4> 
+                          <h4 id="dest-weather-date"><b>Tue, 6 April 2021</b></h4> 
                           <p id="dest-weather-desc">Scattered Clouds</p>
                           <p id="dest-temp">2.7&#176C</p> 
                         </div>
                     </div>
                     <div id="dest-text">
-                        <p>Arrival Date: 6 April 2021</p>
-                        <p>Days to Arrival: 3</p>
+                        <p id="dest-arrival-date">Arrival Date: 6 April 2021</p>
+                        <p id="dest-departure-date">Departure Date: 20 April 2021</p>
+                        <p id="days-to-arrival">Days to Arrival: 3</p>
                     </div>
                 </div>
             </div>
-        </header>
-        <main>
-            <div class="popular-destinations">
+            <div class="popular-destinations" id="popular-destinations-obj">
                 <h2 class="multicolor-text" id="pop-dest-title">Popular Destinations</h2>
                 <div class="destinations-details">
                     <section id="destination-1">
                         <p class="destination-headers"><span>1.</span> Paris</p>
                         <div id="destination-1-background">
-                            <img src="src/client/media/eiffel_tower.png" alt="effiel tower">
+                            <img src="https://img.pngio.com/eiffel-tower-png-images-free-download-png-eiffel-tower-1795_2479.png" alt="effiel tower">
                         </div>
                     </section>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
-                    <p>Text</p>
+                    <section id="destination-2">
+                        <p class="destination-headers"><span>2.</span> London</p>
+                        <div id="destination-2-background">
+                            <img src="https://purepng.com/public/uploads/large/london-rfc.png" alt="london">
+                        </div>
+                    </section>
                 </div>
             </div>
+            <section id="saved-trips"></section>
         </main>
         <!-- <script src="src/client/js/animation.js">
-            // let slideIndex = 1;
-            // Client.showSlides(slideIndex);
-        </script> -->
-        <!-- <script type="text/javascript">
-        // $(window).scroll(Client.zoomBackgroundWhenScroll);
-            document.addEventListener("scroll", Client.zoomBackgroundWhenScroll);
         </script> -->
     </body>
+    <footer>
+        <p>Contact |</p>
+        <ul class="contact-links">
+            <li>
+                <a href="https://www.linkedin.com/" >
+                    <img alt="linkedin" class="contact-img-link" src="https://www.flaticon.com/svg/static/icons/svg/174/174857.svg" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.github.com/" >
+                    <img alt="github" class="contact-img-link" src="https://www.flaticon.com/svg/static/icons/svg/25/25657.svg" />
+                </a>
+            </li>
+        </ul>
+    </footer>
 </html>
