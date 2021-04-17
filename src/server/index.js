@@ -4,11 +4,13 @@ var path = require('path')
 const express = require('express')
 const app = express();
 
+module.exports = app
+
 const mockAPIResponse = require('./mockAPI.js')
 
 const dotenv = require('dotenv');
 dotenv.config();
-const PORT = process.env.PORT || 8005;
+const PORT = process.env.PORT || 7500;
 const GEONAMES_USERNAME = process.env.GEONAMES_USERNAME;
 const WEATHERBIT_KEY = process.env.WEATHERBIT_KEY;
 const PIXABAY_KEY = process.env.PIXABAY_KEY;
@@ -43,21 +45,16 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-// app.post('/retrieveCoordinates', retrieveCoordinates);
-
 const retrieveDestinationData = async(request, response) => {
     let destination = request.body.destination;
     let arrivalDate = request.body.arrivalDate;
     let departureDate = request.body.departureDate;
 
-    // console.log(`Destination ${destination}`)
-    // console.log(`Arrival Date ${arrivalDate}`)
-    // console.log(`Departure Date ${departureDate}`)
-
     arrivalDate = new Date(arrivalDate);
     const arrivalDateStr = arrivalDate.toDateString();
+    console.log("Before formatting: ", arrivalDateStr);
     const newArrivalDateStr = formatDateString(arrivalDateStr);
-    // console.log("Arrival Day:", newArrivalDateStr);
+    console.log("After formatting: ", newArrivalDateStr);
 
     departureDate = new Date(departureDate);
     const departureDateStr = departureDate.toDateString();
@@ -68,15 +65,8 @@ const retrieveDestinationData = async(request, response) => {
         const coordAndCountryName = await getCoordAndCountryName(destination, response);
         //  get days to arrival
         const daysToArrival = await getDaysToArrival(arrivalDate);
-        // console.log("Days to Arr", daysToArrival);
-        // get weather
-        // weather = { 
-        //     weather: [{description: "Clear sky", iconURL: "https://www.weatherbit.io/static/img/icons/c01d", temp: 1}, {description, ...}]
-        // }
         const weather = await getWeather(coordAndCountryName.lat, coordAndCountryName.lng, daysToArrival, response);
-        // console.log("Weather", weather);
         const images = await getPhoto(destination, response, 3);
-        // console.log("Images", images);
         const destinationData = {
             destination: destination,
             weather: weather,
@@ -120,8 +110,6 @@ const getDaysToArrival = async(arrivalDate) => {
     const todayDate = new Date();
     todayDate.setHours(0,0,0,0);
 
-    // let arrivalDate = new Date(arrivalDateStr);
-
     let daysToArrival = (arrivalDate - todayDate) / numMillisecondsInADay;
     
     daysToArrival = Math.floor(daysToArrival);
@@ -149,12 +137,9 @@ const getWeather = async(lat, lng, daysToArrival, response) => {
 
     try {
         const weatherResults = await res.json();
-        // console.log("Fetched", weatherResults);
         // build array of json from all indices in weatherData
         weatherSummaryArray = buildWeatherSummaryJSON(weatherResults);
         const arrivalDayWeather = getArrivalDayWeather(weatherSummaryArray, daysToArrival);
-        // console.log("Arr Date", arrivalDayWeather.date);
-        // console.log("Arr Weather", arrivalDayWeather.temp);
         return arrivalDayWeather;
     } catch(error) {
         console.log("error", error);

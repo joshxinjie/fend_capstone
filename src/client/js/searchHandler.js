@@ -1,6 +1,3 @@
-// const envVariables = process.env;
-// console.log(envVariables.PORT);
-
 function handleSearch(event) {
     let destination = document.getElementById("search-destination").value;
     const arrivalDate = document.getElementById("arrival-date").value;
@@ -9,9 +6,6 @@ function handleSearch(event) {
     checkMissingInputs(destination, arrivalDate, departureDate);
 
     destination = destination.toLowerCase().trim();
-    // console.log(`Destination: ${destination}`);
-    // console.log(`Arrival Date: ${arrivalDate}`);
-    // console.log(`Departure Date: ${departureDate}`);
 
     retrieveDestinationData(destination, arrivalDate, departureDate);
 }
@@ -25,13 +19,14 @@ function checkMissingInputs(destination, arrivalDate, departureDate) {
     }
     if (departureDate == "") {
         alert("Please enter a valid departure date");
-    } 
+    }
 }
 
 function retrieveDestinationData(dest, arrDate, depDate) {
     // let postURL = `${window.location.origin}/retrieveWeather`;
     let postURL = 'http://localhost:7500/retrieveDestinationData';
     let destData = {destination: dest, arrivalDate: arrDate, departureDate: depDate};
+    console.log("destData: ", destData);
     postDestination(postURL, destData)
     .then(response => updateUI(response));
 }
@@ -84,4 +79,4 @@ function updateUI(destinationData) {
     }
 };
 
-export { handleSearch };
+export { handleSearch, postDestination };

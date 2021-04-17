@@ -44,19 +44,16 @@ function zoomBackgroundWhenScroll() {
             let sectionID = eachSection.getAttribute("id");
             let sectionBackground = document.getElementById(sectionID + "-background");
             let distanceToTop = eachSection.getBoundingClientRect().top;
-            // let distanceToTop = window.pageYOffset + eachSection.getBoundingClientRect().top
             let zoomFactor = 100 + (distanceToTop * -1) * 0.1;
-            console.log(`Section: ${sectionID}`);
-            console.log(`Zoom Factor: ${zoomFactor}%`);
-            console.log(`Scroll top: ${document.scrollingElement.scrollTop}`);
-            console.log(`Distance to top: ${distanceToTop}`)
+            // console.log(`Section: ${sectionID}`);
+            // console.log(`Zoom Factor: ${zoomFactor}%`);
+            // console.log(`Scroll top: ${document.scrollingElement.scrollTop}`);
+            // console.log(`Distance to top: ${distanceToTop}`)
             if ((zoomFactor > 100) && (sectionBackground != null)){
                 sectionBackground.style.backgroundSize = `${zoomFactor}%`;
             }
         }
     }
 }
-
-// document.addEventListener("scroll", zoomBackgroundWhenScroll);
 
 export { zoomBackgroundWhenScroll };
