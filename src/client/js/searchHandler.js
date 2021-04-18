@@ -43,7 +43,7 @@ const postDestination = async(url='', data={}) => {
 
     try {
         const newData = await response.json();
-        console.log("New Data", newData);
+        // console.log("New Data", newData);
         return newData;
     } catch(error) {
         console.log("error", error);
