@@ -1,8 +1,9 @@
 body {
-    // background:white;
-    // background-image: url(https://source.unsplash.com/Q7PclNhVRI0);
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 
     .search-results {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,6 +12,12 @@ body {
             font-size: larger;
             font-weight: bold;
         }
+    }
+
+    .popular-destinations {
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .multicolor-text {
@@ -24,7 +31,6 @@ body {
     #pop-dest-title {
         margin-left: 100px;
         font-size: 300%;
-        // font-weight: bold;
     }
 
     .destinations-details {
@@ -33,15 +39,14 @@ body {
 
     #destination-1-background {
         width: 100%;
-        height: calc(80vh);
-        // background: url("https://images.unsplash.com/photo-1528818955841-a7f1425131b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80") no-repeat 50% 50%;
+        height: calc(40vh);
         background: url("https://wallpaperaccess.com/full/58378.jpg") no-repeat 50% 50%;
         background-size: cover;
         position: relative;
 
         img {
-            // width: 100%;
-            height: calc(80vh);
+            width: calc(20vw);
+            height: calc(30vh);
             position: absolute;
             top: 0;
             bottom: 0;
@@ -51,16 +56,37 @@ body {
         }
     }
 
+    @media (min-width: 500px) {
+        #destination-1-background {
+            height: calc(60vh);
+
+            img {
+                width: calc(25vw);
+                height: calc(50vh);
+            }
+        }
+    }
+
+    @media (min-width: 1000px) {
+        #destination-1-background {
+            height: calc(70vh);
+
+            img {
+                width: calc(25vw);
+                height: calc(70vh);
+            }
+        }
+    }
+
     #destination-2-background {
         width: 100%;
-        height: calc(80vh);
+        height: calc(40vh);
         background: url("https://i.natgeofe.com/n/1edad4f5-6a8d-4a4f-becc-bdbc7a99c9fd/01-starstruck-spica-051616.jpg") no-repeat 50% 50%;
         background-size: cover;
         position: relative;
 
         img {
-            // width: 100%;
-            height: calc(80vh);
+            width: 100%;
             position: absolute;
             top: 0;
             bottom: 0;
@@ -70,22 +96,48 @@ body {
         }
     }
 
-    #destination-2-background {
+    @media (min-width: 500px) {
+        #destination-2-background {
+            height: calc(60vh);
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    @media (min-width: 1000px) {
+        #destination-2-background {
+            height: calc(80vh);
+        
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    #destination-3-background {
         width: 100%;
-        height: calc(80vh);
-        // background: url("https://i.natgeofe.com/n/1edad4f5-6a8d-4a4f-becc-bdbc7a99c9fd/01-starstruck-spica-051616.jpg") no-repeat 50% 50%;
-        // background-size: cover;
+        height: calc(40vh);
         position: relative;
 
         img {
-            width: 100%;
-            height: calc(80vh);
+            max-width: 100%;
+            // height: calc(80vh);
             position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
             margin: auto;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        #destination-3-background {
+            width: 100%;
+            height: calc(80vh);
+            position: relative;
         }
     }
 
@@ -100,5 +152,4 @@ body {
             font-size: xxx-large;
         }
     }
-
 }

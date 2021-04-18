@@ -6,7 +6,12 @@ footer {
     display: inline-block;
     background: $main-color;
     text-align: center;
+
     width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 
     p {
         display: inline-block;
