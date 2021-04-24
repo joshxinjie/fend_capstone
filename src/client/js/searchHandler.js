@@ -23,8 +23,8 @@ function checkMissingInputs(destination, arrivalDate, departureDate) {
 }
 
 function retrieveDestinationData(dest, arrDate, depDate) {
-    // let postURL = `${window.location.origin}/retrieveWeather`;
-    let postURL = 'http://localhost:7500/retrieveDestinationData';
+    let postURL = `${window.location.origin}/retrieveDestinationData`;
+    // let postURL = 'http://localhost:7500/retrieveDestinationData';
     let destData = {destination: dest, arrivalDate: arrDate, departureDate: depDate};
     console.log("destData: ", destData);
     postDestination(postURL, destData)
