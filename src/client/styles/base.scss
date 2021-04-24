@@ -59,18 +59,13 @@ body {
     @media (min-width: 1500px) {
         #destination-1-background {
             background: url("https://wallpaperaccess.com/full/58378.jpg") no-repeat 50% 50%;
-            height: calc(70vh);
+            height: calc(80vh);
 
             img {
                 content:url(https://img.pngio.com/eiffel-tower-png-images-free-download-png-eiffel-tower-1795_2479.png);
-                width: calc(25vw);
-                height: calc(70vh);
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: auto;
+                // width: calc(25vw);
+                // height: calc(70vh);
+                width: 100%;
             }
         }
     }

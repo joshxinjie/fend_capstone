@@ -1,5 +1,9 @@
 # FEND Capstone
 
+## Website URL
+
+https://fsnd-travel-capstone.herokuapp.com/
+
 ## Introduction
 
 This project involve building a custom travel application. It includes a simple form where
@@ -76,3 +80,49 @@ npm run test
 ## Extension to Project
 
 * Incorporate icons into forecast.
+
+## Heroku Deployment
+
+1. Create a new app in your Heroku dashboard
+
+2. Enter any required keys and secrets in `Settings` -> `Config Vars`
+
+3. In a terminal on your local computer, cd into the root of your project repo and log into Heroku:
+
+```
+heroku login
+```
+
+4. To link an existing repo to heroku app called `fsnd-travel-capstone` for the first time:
+
+```
+heroku git:remote - a fsnd-travel-capstone
+```
+
+or clone from existing heroku repo for `fsnd-travel-capstone` app:
+
+```
+heroku git:clone -a fsnd-travel-capstone
+cd fsnd-travel-capstone
+```
+
+5. To deploy changes:
+
+```
+git add .
+git commit -am "make it better"
+```
+
+Then do either 3a) or 3b)
+
+3a) If deploying from master branch
+
+```
+git push heroku master
+```
+
+3b) If deploying from `heroku-deploy` branch
+
+```
+git push heroku heroku-deploy:master
+```
